@@ -1,0 +1,122 @@
+html{
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    background-color:white;
+}
+.navbar{    
+    background-color: #f90;
+    width: 100%;
+}
+.navbar-brand{
+    font-weight: 700;
+    color: white;
+}
+
+.navbar-nav a{
+    color: #ffffff  ;
+}
+
+.navbar-toggler{
+    background-color: #ffffff ;
+
+}
+
+.dropdown-item{
+    background-color: #f90;
+    color: white;
+
+}
+
+#fotoPerfil{
+    height: 30px;
+    width: 30px;
+}
+
+.card{
+    padding: 150px auto;
+}
+.btn_actDatos{
+    text-align: center;
+    padding-bottom: 15px;
+}
+#btn_ActualizarUsuario{
+    height: 40px;
+    width: 12em;
+    color: white;
+    background-color:#f90;
+    margin: 15px;
+    position: relative;
+}
+.list_datosPersonales{
+    margin: 25px;
+    padding-top: 8px;
+}
+
+#DatosPersonales{
+    padding: 30px;
+}
+.input_Datos_Personales{
+    padding: 10px; 
+}
+
+.input_datosPersonales{
+    width: 100%;
+    background: none;
+    color: black;
+    font-size: 1rem;
+    padding: .3em .3em;
+    border:none;
+    outline: none;
+    border-bottom: 1px solid  #5757577e;   
+}
+
+.input_Datos_Personales i{
+    position: absolute;
+
+    color: #ccc;
+
+    cursor: pointer;
+}
+
+.input_Datos_Personales i.active::before{
+    color: #333;
+    content: "\f070";
+    
+}
+.title{
+    padding: 15px;
+
+}
+.input_datosPersonales:focus{
+    border-bottom: 2px solid  #1e00b2;  
+ 
+}
+
+.footer{
+    background-color:#f90; 
+    margin-top: auto;
+    padding-top: 20px;
+
+}
+.row-footer{
+    justify-content: center;
+}
+
+.footer h6{
+    color: white;
+}
+.footer ol{
+    color: #ffffff  ;
+}
+.section-recomendaciones{
+    padding-bottom: 5rem;
+}
+section{
+    padding-top: 5rem;
+
+}

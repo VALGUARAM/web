@@ -1,0 +1,68 @@
+html{
+    height: 100%;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    background-color:white;
+}
+
+.navbar{    
+    background-color: #f90;
+    width: 100%;
+}
+.navbar-brand{
+    font-weight: 700;
+    color: white;
+}
+
+.navbar-nav a{
+    color: #ffffff  ;
+}
+
+.navbar-toggler{
+    background-color: #ffffff ;
+
+}
+.dropdown-item{
+    background-color: #f90;
+    color: white;
+
+}
+
+.carousel-inner{
+    min-height: 200px;
+    max-height: 500PX;
+}
+#cardProducto{
+    margin: 5px;
+}
+#containerMasVendidos{
+    size-adjust: max-content;
+}
+
+.footer{
+    background-color:#f90; 
+    margin-top: auto;
+    padding-top: 20px;
+
+}
+
+.row-footer{
+    justify-content: center;
+}
+
+.footer h6{
+    color: white;
+}
+.footer ol{
+    color: #ffffff  ;
+}
+.section-recomendaciones{
+    padding-bottom: 5rem;
+}
+section{
+    padding-top: 5rem;
+
+}

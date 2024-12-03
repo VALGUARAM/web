@@ -1,0 +1,166 @@
+html{
+    height: 100%;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    background-color:white;
+}
+
+.navbar{    
+    background-color: #f90;
+    width: 100%;
+}
+.navbar-brand{
+    font-weight: 700;
+    color: white;
+}
+
+.navbar-nav a{
+    color: #ffffff  ;
+}
+
+.navbar-toggler{
+    background-color: #ffffff ;
+
+}
+.dropdown-item{
+    background-color: #f90;
+    color: white;
+
+}
+
+.form{
+    background-color: white;
+    margin: auto;
+    width: 90%;
+    max-width: 900px;
+    padding: 3em 3em;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px -2px rgb(0,0,0 );
+    text-align: center;
+}
+.form_title{
+    font-size: 2rem;
+    margin-bottom: .5em;
+}
+
+.form_paragraph{
+    font-weight: 300;
+}
+.form_link{
+    font-weight: 400;
+    color: black;
+}
+.form_container{
+    margin-top: 3em;
+    display: grid;
+    gap: 3em;
+}
+.form_group{
+    position: relative;
+}
+.form_label{
+     color: #5757577e;
+     text-align: left;
+     display: block;
+     color: #5757577e;    
+     cursor:pointer;
+}
+.error{
+    color: #CF0D0D;
+}
+.form_input{
+    width: 100%;
+    background: none;
+    color: black;
+    font-size: 1rem;
+    padding: .3em .3em;
+    border:none;
+    outline: none;
+    border-bottom: 1px solid  #5757577e;  
+}
+.form_input:focus{
+    border-bottom: 2px solid  #f90; 
+    outliner:none;
+}
+#fechaNacimiento{
+    padding-right: 45px;
+}
+#image{
+    padding-right: 45px;
+}
+.form_group i{
+    position: absolute;
+    padding-bottom: 10px;
+    z-index: 100; 
+    font-size: 16px; 
+    opacity: 0;
+}
+.form_submit{
+    width: 100%;
+    background:#f90;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    padding: .8em 0;
+    border: none;
+    border-radius: .5em;
+}
+.error{
+    font-size: 12px;
+    margin-bottom: 0;
+    display: none;
+}
+.form_group_incorrecto .form_label{
+     color: #CF0D0D;
+}
+.form_group_incorrecto .form_validacion_x{
+     position: absolute;
+     color: #CF0D0D;
+     opacity: 1;
+}
+.form_group_incorrecto .form_input{
+     border-bottom: 2px solid  #CF0D0D;
+}
+.form_group_incorrecto .error{
+        display: block;
+}
+
+.form_group_correcto .form_label{
+     color: #00C51E;
+}
+.form_group_correcto .form_validacion_x{
+     opacity: 0;
+}
+.form_group_correcto .form_input{
+     border-bottom: 2px solid  #00C51E;
+}
+
+
+.footer{
+    background-color:#f90; 
+    margin-top: auto;
+    padding-top: 20px;
+
+}
+
+.row-footer{
+    justify-content: center;
+}
+
+.footer h6{
+    color: white;
+}
+.footer ol{
+    color: #ffffff  ;
+}
+.section-recomendaciones{
+    padding-bottom: 5rem;
+}
+section{
+    padding-top: 5rem;
+
+}

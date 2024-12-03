@@ -1,0 +1,176 @@
+USE bdm;
+
+CREATE TABLE ESTADO(
+	ID_Estado INT PRIMARY KEY AUTO_INCREMENT,
+    Nombre_Estado VARCHAR(20)
+);
+
+CREATE TABLE ROL(
+	ID_Rol INT PRIMARY KEY AUTO_INCREMENT,
+    Nombre_Rol VARCHAR(20)
+);
+
+CREATE TABLE METODO_PAGO(
+	ID_Met_Pago INT PRIMARY KEY AUTO_INCREMENT,
+    Nombre_MetPago VARCHAR(20),
+    Estado INT,
+    
+    FOREIGN KEY (Estado) REFERENCES ESTADO(ID_Estado)
+);
+CREATE TABLE MODO(
+	ID_Modo INT PRIMARY KEY AUTO_INCREMENT,
+    Nombre VARCHAR(100),
+	Estado INT,
+     
+	FOREIGN KEY (Estado) REFERENCES ESTADO(ID_ESTADO)
+);
+CREATE TABLE USUARIO(
+	ID_Usuario INT PRIMARY KEY AUTO_INCREMENT,
+	Nombre VARCHAR(100),
+    Apellido_Paterno VARCHAR(100),
+    Apellido_Materno VARCHAR(100),
+    Usuario VARCHAR(50)UNIQUE,
+    Correo VARCHAR(255),
+    Fecha_Nacimiento DATE,
+    Contrasenia VARCHAR (50),
+    Foto_Perfil LONGBLOB,
+    Genero VARCHAR(2),
+    Fecha_alta DATE,
+    Rol INT,
+    Modo INT,
+    Estado INT,
+	
+    FOREIGN KEY (Rol) REFERENCES ROL(ID_ROL),
+	FOREIGN KEY (Estado) REFERENCES ESTADO(ID_Estado),
+    FOREIGN KEY (Modo) REFERENCES MODO(ID_Modo)
+    
+);
+
+CREATE TABLE CATEGORIA(
+	ID_Categoria INT PRIMARY KEY AUTO_INCREMENT,
+    Nombre_Categoria VARCHAR(30),
+    Usuario_Creador INT,
+    ESTADO INT,
+    
+    FOREIGN KEY (Usuario_Creador) REFERENCES USUARIO(ID_Usuario),
+    FOREIGN KEY (Estado) REFERENCES ESTADO(ID_Estado)
+);
+CREATE TABLE PRODUCTO(
+	ID_Producto INT PRIMARY KEY AUTO_INCREMENT,
+    Nombre_Producto VARCHAR(50),
+    Descripcion VARCHAR(100),
+    Imagen LONGBLOB,
+    Fecha_Alta DATE,
+    Fecha_Expiraricon DATE,
+    Precio DECIMAL(15,6),
+    Inventario INT,
+    Categoria INT,
+    Estado INT,
+    Usuario_Vendedor INT,
+    
+	FOREIGN KEY (Categoria) REFERENCES CATEGORIA(ID_Categoria),
+    FOREIGN KEY (Estado) REFERENCES ESTADO(ID_Estado),
+	FOREIGN KEY (Usuario_Vendedor) REFERENCES USUARIO(ID_Usuario)
+);
+
+CREATE TABLE LISTA(
+	ID_Lista INT PRIMARY KEY AUTO_INCREMENT,
+    Nombre_Lista VARCHAR(30),
+    Descripción VARCHAR(50),
+    Usuario_Creador INT,
+    Estado INT,
+    Modo INT,
+    
+    FOREIGN KEY (Estado) REFERENCES ESTADO(ID_Estado),
+    FOREIGN KEY (Usuario_Creador) REFERENCES USUARIO(ID_Usuario),
+    FOREIGN KEY (Modo) REFERENCES MODO(ID_Modo)
+);
+ CREATE TABLE LISTA_PRODUCTO(
+    Lista INT,
+    Producto INT, 
+
+    FOREIGN KEY (Lista) REFERENCES Lista(ID_LISTA), 
+    FOREIGN KEY (Producto) REFERENCES Producto(ID_PRODUCTO), 
+    PRIMARY KEY (Lista, Producto) 
+);
+
+CREATE TABLE CHAT(
+	ID_Chat INT PRIMARY KEY AUTO_INCREMENT,
+    Usuario_Vendedor INT,
+    Usuario_Comprador INT,
+	Mensaje VARCHAR(255),
+    Fecha_Envio DATETIME,
+    Estado INT,
+    
+   FOREIGN KEY (Usuario_Vendedor) REFERENCES USUARIO(ID_Usuario),
+   FOREIGN KEY (Usuario_Comprador) REFERENCES USUARIO(ID_Usuario),
+   FOREIGN KEY (Estado) REFERENCES ESTADO(ID_Estado)
+);
+
+CREATE TABLE AUTORIZAR(
+    Usuario INT,
+    Producto INT,
+    Fecha_Autorizacion DATETIME,
+    
+   FOREIGN KEY (Usuario) REFERENCES USUARIO(ID_Usuario),
+   FOREIGN KEY (Producto) REFERENCES PRODUCTO(ID_Producto),
+   PRIMARY KEY(Usuario, Producto)
+);
+
+CREATE TABLE COMPRA(
+	ID_Compra INT PRIMARY KEY AUTO_INCREMENT,
+    Usuario_Comprador INT,
+	Usuario_Vendedor INT,
+    Producto INT,
+    Estado INT,
+	Descripcion VARCHAR(255),
+	Fecha_Compra DATETIME,
+	Met_Pago INT,
+    
+	FOREIGN KEY (Producto) REFERENCES PRODUCTO(ID_Producto),
+	FOREIGN KEY (Usuario_Comprador) REFERENCES USUARIO(ID_Usuario),
+	FOREIGN KEY (Usuario_Vendedor) REFERENCES USUARIO(ID_Usuario),
+	FOREIGN KEY (Met_Pago) REFERENCES METODO_PAGO(ID_Met_Pago),
+	FOREIGN KEY (Estado) REFERENCES ESTADO(ID_Estado)
+);
+
+CREATE TABLE COMENTARIO(
+	ID_Comentario INT PRIMARY KEY AUTO_INCREMENT,
+	Usuario INT,
+    Producto INT,
+    Mensaje VARCHAR(255),
+    
+    FOREIGN KEY (Producto) REFERENCES PRODUCTO(ID_Producto),
+    FOREIGN KEY (Usuario) REFERENCES USUARIO(ID_Usuario)
+);
+
+CREATE TABLE CARRITO(
+	ID_Carrito INT PRIMARY KEY AUTO_INCREMENT,
+    Usuario INT,
+    Estado INT,
+    
+	FOREIGN KEY (Usuario) REFERENCES USUARIO(ID_Usuario),
+	FOREIGN KEY (Estado) REFERENCES ESTADO(ID_Estado)
+);
+
+CREATE TABLE CARRITO_PRODUCTO(
+	Carrito INT,
+    Producto INT,
+    Num_articulos INT,
+    Precio_Total DECIMAL(15,6),
+    Fecha_Expiracion DATE,
+    
+	FOREIGN KEY (Producto) REFERENCES PRODUCTO(ID_Producto)
+);
+DROP TABLE USUARIO;
+drop TABLE PRODUCTO;
+DROP TABLE LISTA;
+DROP TABLE LISTA_PRODUCTO;
+DROP TABLE AUTORIZAR;
+DROP TABLE CHAT;
+DROP TABLE COMPRA;
+DROP TABLE COMENTARIO;
+DROP TABLE CARRITO;
+DROP TABLE CARRITO_PRODUCTO;
+DROP TABLE CATEGORIA;
+DROP TABLE METODO_PAGO;

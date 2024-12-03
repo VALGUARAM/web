@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Compras</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: orange;
+            color: white;
+        }
+       
+        a:link, a:visited {
+            background-color: #f44336;
+            color: white;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 4px;
+        }
+
+        a:hover, a:active {
+            background-color: orange;
+        }
+
+        input[type=button] {
+            background-color: orange;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=button]:hover {
+            background-color: red;
+        }
+
+        input[type=text], select {
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <h2>Tabla de Compras</h2>
+
+    <input type="button" value="Buscar Fecha" id="Boton_ConPed" onclick="consultaPedido()">
+    <input type="text" placeholder="YYYY-MM-DD" id="Text_ConPed">
+    <br><br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Fecha Compra</th>
+                <th>Nombre Categoria</th>
+                <th>Nombre Producto</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody id="tabla_ConPed">
+            
+        </tbody>
+    </table>
+
+    <script src="../JS/ConsultaPedidos.js"></script>
+
+    <br><br>
+    <a href="../PaginaPrincipal.php">VOLVER</a>
+</body>
+</html>
